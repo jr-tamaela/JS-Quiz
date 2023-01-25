@@ -10,6 +10,37 @@ const fact = {
   explanation: "Arrays are a kind of object with special properties.",
 };
 
+//TODO 7
+const facts = [
+  {
+    statement: "Arrays are objects",
+    answer: true,
+    explanation: "Arrays are a kind of object with special properties.",
+  },
+  {
+    statement: "Javascript was invented in 1995",
+    answer: true,
+    explanation:
+      "Javascript was created by Brendan Eich @ Netscape. The first version was written in 10 days.",
+  },
+  {
+    statement: "1 + 1 === 2",
+    answer: true,
+    explanation: "The plus operator gives the sum of two numbers",
+  },
+  {
+    statement: "The HTML element in which you put JS is <javascript>",
+    answer: false,
+    explanation: "Javascript is put in a <script> tag",
+  },
+  {
+    statement: "Javascript was invented in 1995",
+    answer: true,
+    explanation:
+      "Javascript was created by Brendan Eich @ Netscape. The first version was written in 10 days.",
+  },
+];
+
 //TODO 3
 statement.textContent = fact.statement;
 
