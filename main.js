@@ -59,15 +59,13 @@ const isCorrect = (guessString) => {
 //TODO 6
 for (let button of optionButtons) {
   button.addEventListener("click", (event) => {
-    console.log("clicked");
-
-    // display the fact's explanation by setting the text of the explanation element.
-    explanation.textContent = fact.explanation;
-
-    // disable all the option buttons
+    // upon click, disable all the option buttons
     for (let disableButtons of optionButtons) {
       disable(disableButtons);
     }
+
+    // display the fact's explanation by setting the text of the explanation element.
+    explanation.textContent = fact.explanation;
 
     if (isCorrect(button.value)) {
       button.classList.add("correct");

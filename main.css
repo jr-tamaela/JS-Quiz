@@ -27,6 +27,9 @@ main {
 #explanation {
   padding: 1rem;
   text-align: center;
+  /* border: 1px dashed grey; */
+  margin-bottom: 1rem;
+  border-radius: 10px;
 }
 #options {
   width: 100%;
@@ -37,10 +40,19 @@ button {
   padding: 0.5rem;
   font-size: medium;
   border-radius: 5px;
+  margin-bottom: 0.5rem;
 }
+button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
 .correct {
   background-color: lightgreen;
 }
 .incorrect {
   background-color: lightpink;
+}
+.hidden {
+  display: none;
 }
