@@ -18,7 +18,7 @@ const facts = [
     explanation: "Arrays are a kind of object with special properties.",
   },
   {
-    statement: "Javascript was invented in 1995",
+    statement: "Javascript was invented in 1995.",
     answer: true,
     explanation:
       "Javascript was created by Brendan Eich @ Netscape. The first version was written in 10 days.",
@@ -26,18 +26,18 @@ const facts = [
   {
     statement: "1 + 1 === 2",
     answer: true,
-    explanation: "The plus operator gives the sum of two numbers",
+    explanation: "The plus operator gives the sum of two numbers.",
   },
   {
-    statement: "The HTML element in which you put JS is <javascript>",
+    statement: "The HTML element in which you put JS is <javascript>.",
     answer: false,
     explanation: "Javascript is put in a <script> tag",
   },
   {
-    statement: "Javascript was invented in 1995",
-    answer: true,
+    statement: "An external JavaScript file must contain the <script> tag.",
+    answer: false,
     explanation:
-      "Javascript was created by Brendan Eich @ Netscape. The first version was written in 10 days.",
+      "after refering to an external JavaScript file it is not needed to use the <script> tag.",
   },
 ];
 
