@@ -1,16 +1,3 @@
-//TODO 1
-const statement = document.getElementById("statement");
-const optionButtons = document.querySelector("#options").children;
-const explanation = document.getElementById("explanation");
-
-//TODO 2
-const fact = {
-  statement: "Arrays are objects",
-  answer: true,
-  explanation: "Arrays are a kind of object with special properties.",
-};
-
-//TODO 7
 const facts = [
   {
     statement: "Arrays are objects",
@@ -41,36 +28,83 @@ const facts = [
   },
 ];
 
-//TODO 3
-statement.textContent = fact.statement;
+//Functions to show/hide, enable/disable
+function hide(element) {
+  element.classList.add("hidden");
+}
 
-//TODO 4
-const disable = (button) => {
+function show(element) {
+  element.classList.remove("hidden");
+}
+
+function disable(button) {
   button.setAttribute("disabled", "");
-};
+}
 
-const enable = (button) => button.removeAttribute("disabled");
+function enable(button) {
+  button.removeAttribute("disabled");
+}
 
-//TODO 5
-const isCorrect = (guessString) => {
-  return guessString === fact.answer.toString();
-};
+let correct = 0;
+let completed = 0;
 
-//TODO 6
-for (let button of optionButtons) {
-  button.addEventListener("click", (event) => {
+let fact;
+
+const explanation = document.getElementById("explanation");
+const nextButton = document.getElementById("next-question");
+const optionButtons = document.getElementById("options").children;
+
+function getNextFact() {
+  fact = facts.shift(); // get the first fact in our array (shortening the array)
+
+  document.getElementById("statement").textContent = fact.statement;
+  hide(explanation);
+
+  // Loop over all option buttons, make sure all classes are removed
+  // and enable the buttons.
+  for (let option of optionButtons) {
+    option.classList.remove("correct");
+    option.classList.remove("incorrect");
+    enable(option);
+  }
+
+  // disable next-question button
+  disable(nextButton);
+}
+
+nextButton.addEventListener("click", getNextFact);
+
+for (let option of optionButtons) {
+  option.addEventListener("click", (e) => {
     // upon click, disable all the option buttons
-    for (let disableButtons of optionButtons) {
-      disable(disableButtons);
+    for (let button of optionButtons) {
+      disable(button);
+    }
+
+    // enable 'next-question' button
+    if (facts.length > 0) {
+      enable(nextButton);
+    } else {
+      nextButton.textContent = "No more questions..";
+    }
+
+    const guess = e.target.value;
+    if (guess === fact.answer) {
+      e.target.classList.add("correct");
+      correct += 1;
+    } else {
+      e.target.classList.add("incorrect");
     }
 
     // display the fact's explanation by setting the text of the explanation element.
     explanation.textContent = fact.explanation;
+    show(explanation);
 
-    if (isCorrect(button.value)) {
-      button.classList.add("correct");
-    } else {
-      button.classList.add("incorrect");
-    }
+    // update score
+    completed += 1;
+    document.getElementById("correct").textContent = correct;
+    document.getElementById("completed").textContent = completed;
   });
 }
+
+getNextFact();
